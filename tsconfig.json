@@ -1,10 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "baseUrl": ".",
+    "target": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -13,21 +19,37 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "allowImportingTsExtensions": true,
+    "moduleDetection": "force",
     "plugins": [
       {
         "name": "next"
       }
     ],
+    "strictNullChecks": true,
     "paths": {
-      "@/*": ["./*"]
-    }
+      "@config/*": [
+        "./edit-me/config/*"
+      ],
+      "@content": [
+        "./.contentlayer/generated"
+      ],
+      "@test-utils": [
+        "src/test-utilities.tsx"
+      ]
+    },
+    "types": [
+      "bun-types"
+    ]
   },
+  "exclude": [
+    "node_modules"
+  ],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "next.config.mjs"
-  ],
-  "exclude": ["node_modules"]
+    ".contentlayer/generated"
+  ]
 }
